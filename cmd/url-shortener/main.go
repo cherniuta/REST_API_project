@@ -4,6 +4,7 @@ import (
 	"golang.org/x/exp/slog"
 	"os"
 	"rest_api_project/internal/config"
+	"rest_api_project/internal/storage/sqlite"
 )
 
 const (
@@ -20,7 +21,7 @@ func main() {
 	log.Info("starting url-shortener", slog.String("env", cfg.Env))
 	log.Debug("debug messages are enabled")
 
-	storage, err := 
+	storage, err := sqlite.New(cfg.StoragePath)
 }
 func setupLogger(env string) *slog.Logger {
 	var log *slog.Logger
